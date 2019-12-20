@@ -1,6 +1,9 @@
 require './lib/dictionary'
 
 class Word
+
+  attr_reader :word_id, :name
+  
   @@words = {}
   @@total_words = 0
 
@@ -13,16 +16,28 @@ class Word
     @@words.values().sort_by { | val| val.name}
   end
 
-  def add_word
+  def save_word
 
+    @@words[self.word_id] = Word.new(self.name,self.word_id)
 
   end
 
-  def update_word
+  def update_word(name)
+    @name = name
+
   end
 
   def delete_word
+
+    @@words.delete(self.id)
+
   end
+
+  def self.clear
+    @@words = {}
+    @@total_words = 0
+  end
+
 
 
 
