@@ -13,18 +13,22 @@ describe '#Word' do
     it('testing clear functionality')do
       word = Word.new("Hello",nil)
       word.save_word()
-      # word2 = Album.new("test", nil, "1990", "blues", "bill")
       Word.clear()
       expect(Word.all).to(eq([]))
     end
   end
 
-  # describe ('.all') do
-  #   it("is empty") do
-  #     expect(Album.all).to(eq([]))
-  #   end
-  # end
-  #
+  describe ('.all') do
+    it("words database is empty") do
+      word = Word.new("Hello",nil)
+      word.save_word()
+      word2 = Word.new("Puppy",nil)
+      word2.save_word()
+      expect(Word.all).to(eq([word, word2]))
+       # expect(Album.all).to(eq([album, album2]))
+    end
+  end
+
   # describe ('.sort') do
   #   it("is empty")do
   #     album2 = Album.new("test", nil, "1990", "blues", "bill")
