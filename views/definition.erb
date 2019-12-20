@@ -1,0 +1,7 @@
+<h4>Word: <%= @word.name %></h4>
+
+<h4>Definition: <%= @definition.definition %></h4>
+
+<p><a href="/words/<%= @word.word_id() %>/definitions/<%= @definition.id() %>/edit">Edit Definition</a></p>
+
+<a href="/words/<%= @word.word_id %>/definitions">Click here to go back to the word</a>
