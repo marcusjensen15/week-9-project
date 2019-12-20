@@ -60,4 +60,36 @@ describe '#Word' do
     end
   end
 
+  #below is untested
+
+  describe ('.find_by_word') do
+    it("will allow the user to find a definitions by its associated word") do
+
+      @word2 = Word.new("Stevie", nil)
+      @word2.save_word()
+
+      definition = Dictionary.new("Hello",@word.word_id,nil)
+      definition.save_definition()
+      definition2 = Dictionary.new("Puppy",@word.word_id,nil)
+      definition2.save_definition()
+      expect(Dictionary.find_by_word(@word.word_id)).to(eq([definition,definition2]))
+    end
+
+
+
+    # describe ('.find_by_word') do
+    #   it("will allow the user to find a definitions by its associated word") do
+    #
+    #     @word2 = Word.new("Stevie", nil)
+    #     @word2.save_word()
+    #
+    #     definition = Dictionary.new("Hello",@word.word_id,nil)
+    #     definition.save_definition()
+    #     definition2 = Dictionary.new("Puppy",@word.word_id,nil)
+    #     definition2.save_definition()
+    #     expect(Dictionary.find_by_word(@word.word_id).definition).to(eq([definition.definition,definition2.definition]))
+    #   end
+  end
+
+
 end

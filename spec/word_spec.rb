@@ -48,7 +48,6 @@ describe '#Word' do
     end
   end
 
-  #find function is new
 
   describe ('.find') do
     it("will allow the user to find a word by searching word_id") do
@@ -59,5 +58,10 @@ describe '#Word' do
       expect(Word.find(word.word_id).name).to(eq(word.name))
     end
   end
+
+  #get definitions is new
+
+
+
 
 end

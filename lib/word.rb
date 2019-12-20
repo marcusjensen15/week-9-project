@@ -52,8 +52,9 @@ class Word
      @@words[word_id]
    end
 
+   #get_definitions is not tested
    def get_definitions
-
+     Dictionary.find_by_album(self.id)
    end
 
 

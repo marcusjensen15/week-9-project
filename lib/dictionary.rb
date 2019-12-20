@@ -53,4 +53,10 @@ class Dictionary
      @@definitions[id]
    end
 
+   #find by word is not tested
+
+   def self.find_by_word(word_id)
+     @@definitions.values.select{ |definition| definition.word_id == word_id }
+   end
+
 end
