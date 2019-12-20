@@ -19,12 +19,22 @@ describe '#Word' do
   end
 
   describe ('.all') do
-    it("words database is empty") do
+    it("words database contains all entries") do
       word = Word.new("Hello",nil)
       word.save_word()
       word2 = Word.new("Puppy",nil)
       word2.save_word()
       expect(Word.all).to(eq([word, word2]))
+       # expect(Album.all).to(eq([album, album2]))
+    end
+  end
+
+  describe ('.update_word') do
+    it("allows the user to chenge the name of the word") do
+      word = Word.new("Hello",nil)
+      word.save_word()
+      word.update_word("Speaker")
+      expect(word.name).to(eq("Speaker"))
        # expect(Album.all).to(eq([album, album2]))
     end
   end
