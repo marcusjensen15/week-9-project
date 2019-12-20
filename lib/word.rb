@@ -40,10 +40,20 @@ class Word
 
   def ==(word_to_compare)
      self.name == word_to_compare.name()
+
+     #&& (self.word_id() == word_to_compare.word_id())
+     #below this is new
+
+     #  self.name == song_to_compare.name() && (self.album_id() == song_to_compare.album_id())
+
+   end
+
+   def self.find(word_id)
+     @@words[word_id]
    end
 
    def get_definitions
-     
+
    end
 
 

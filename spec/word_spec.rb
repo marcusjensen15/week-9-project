@@ -48,4 +48,16 @@ describe '#Word' do
     end
   end
 
+  #find function is new
+
+  describe ('.find') do
+    it("will allow the user to find a word by searching word_id") do
+      word = Word.new("Hello",nil)
+      word.save_word()
+      word2 = Word.new("Puppy",nil)
+      word2.save_word()
+      expect(Word.find(word.word_id)).to(eq([]))
+    end
+  end
+
 end
