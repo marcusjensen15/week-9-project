@@ -87,13 +87,32 @@ get('/words/:word_id/definitions/:id') do
   erb(:definition)
 end
 
+get('/words/:word_id/definitions/:id/edit') do
+  @word = Word.find(params[:word_id].to_i())
+  @definition = Dictionary.find(params[:id].to_i())
+  erb(:edit_definition)
+end
 
-## get('/albums/:id/songs/:song_id') do
+
+patch('/words/:word_id/definitions/:id') do
+  @word = Word.find(params[:word_id].to_i())
+  definition = Dictionary.find(params[:id].to_i())
+  definition.update_definition(params[:name])
+  @definitions = @word.get_definitions
+  erb(:definitions)
+end
+
+# patch('/albums/:id/songs/:song_id') do
 #   @album = Album.find(params[:id].to_i())
-#   @song = Song.find(params[:song_id].to_i())
-#   erb(:song)
-# end
-#
+#   song = Song.find(params[:song_id].to_i())
+#   song.update(params[:name])
+#   @songs = @album.get_songs
+#   erb(:songs)
+
+
+
+
+
 
 
 
@@ -102,25 +121,9 @@ end
 #
 # #### Routing for songs below
 #
-# get('/albums/:id/songs') do
-#   @album = Album.find(params[:id].to_i())
-#   @songs = @album.get_songs
-#   erb(:songs)
-# end
-#
-# get('/albums/:id/songs/new') do
-#   @album = Album.find(params[:id].to_i())
-#   erb(:new_song)
-# end
-#
-# post('/albums/:id/songs') do
-#   @album = Album.find(params[:id].to_i())
-#   song = Song.new(params[:song_name], @album.id, nil)
-#   song.save
-#   @songs = @album.get_songs
-#   erb(:songs)
-# end
-#
+
+
+
 # get('/albums/:id/songs/:song_id') do
 #   @album = Album.find(params[:id].to_i())
 #   @song = Song.find(params[:song_id].to_i())
