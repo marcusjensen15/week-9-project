@@ -50,6 +50,14 @@ describe '#Word' do
     end
   end
 
-
+  describe ('.find') do
+    it("will allow the user to find a definition by its id") do
+      definition = Dictionary.new("Hello",@word.word_id,nil)
+      definition.save_definition()
+      definition2 = Dictionary.new("Puppy",@word.word_id,nil)
+      definition2.save_definition()
+      expect(Dictionary.find(definition.id).definition).to(eq(definition.definition))
+    end
+  end
 
 end

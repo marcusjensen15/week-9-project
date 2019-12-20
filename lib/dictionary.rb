@@ -49,4 +49,8 @@ class Dictionary
      self.definition == definition_to_compare.definition()
    end
 
+   def self.find(id)
+     @@definitions[id]
+   end
+
 end
