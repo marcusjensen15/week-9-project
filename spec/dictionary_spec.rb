@@ -38,15 +38,17 @@ describe '#Word' do
       expect(definition.definition).to(eq("puppy"))
     end
   end
-#
-#   describe('#update') do
-#   it("updates an song by id") do
-#     song = Song.new("Naima", @album.id, nil)
-#     song.save()
-#     song.update("Mr. P.C.")
-#     expect(song.name).to(eq("Mr. P.C."))
-#   end
-# end
+
+  describe ('.delete_definition') do
+    it("allows the user to delete a definition from the database") do
+      definition = Dictionary.new("Hello",@word.word_id,nil)
+      definition.save_definition()
+      definition2 = Dictionary.new("Puppy",@word.word_id,nil)
+      definition2.save_definition()
+      definition.delete_definition
+      expect(Dictionary.all).to(eq([definition2]))
+    end
+  end
 
   # describe ('.delete_word') do
   #   it("allows the user to delete a word from the database") do
