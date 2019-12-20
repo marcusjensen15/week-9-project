@@ -3,7 +3,7 @@ require './lib/dictionary'
 class Word
 
   attr_reader :word_id, :name
-  
+
   @@words = {}
   @@total_words = 0
 
@@ -38,6 +38,9 @@ class Word
     @@total_words = 0
   end
 
+  def ==(word_to_compare)
+     self.name == word_to_compare.name()
+   end
 
 
 
