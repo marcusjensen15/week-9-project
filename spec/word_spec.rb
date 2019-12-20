@@ -35,10 +35,19 @@ describe '#Word' do
       word.save_word()
       word.update_word("Speaker")
       expect(word.name).to(eq("Speaker"))
-       # expect(Album.all).to(eq([album, album2]))
     end
   end
 
+  describe ('.delete_word') do
+    it("allows the user to delete a word from the database") do
+      word = Word.new("Hello",nil)
+      word.save_word()
+      word2 = Word.new("Bacon",nil)
+      word2.save_word()
+      word.delete_word
+      expect(Word.all).to(eq([word2]))
+    end
+  end
   # describe ('.sort') do
   #   it("is empty")do
   #     album2 = Album.new("test", nil, "1990", "blues", "bill")

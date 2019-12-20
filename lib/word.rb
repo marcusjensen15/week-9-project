@@ -29,7 +29,7 @@ class Word
 
   def delete_word
 
-    @@words.delete(self.id)
+    @@words.delete(self.word_id)
 
   end
 
