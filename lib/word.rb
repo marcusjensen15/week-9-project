@@ -52,9 +52,10 @@ class Word
      @@words[word_id]
    end
 
-   #get_definitions is not tested
+   #get_definitions is not tested. test will live in dictionary_spec
+
    def get_definitions
-     Dictionary.find_by_album(self.id)
+     Dictionary.find_by_word(word_id)
    end
 
 

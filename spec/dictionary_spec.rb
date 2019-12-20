@@ -74,21 +74,20 @@ describe '#Word' do
       definition2.save_definition()
       expect(Dictionary.find_by_word(@word.word_id)).to(eq([definition,definition2]))
     end
+  end
 
+  describe ('.get_definitions') do
+    it("will allow the user to find a definitions by its associated word") do
 
-    #
-    # describe ('.find_by_word') do
-    #   it("will allow the user to find a definitions by its associated word") do
-    #
-    #     @word2 = Word.new("Stevie", nil)
-    #     @word2.save_word()
-    #
-    #     definition = Dictionary.new("Hello",@word.word_id,nil)
-    #     definition.save_definition()
-    #     definition2 = Dictionary.new("Puppy",@word.word_id,nil)
-    #     definition2.save_definition()
-    #     expect(Dictionary.find_by_word(@word.word_id).definition).to(eq([definition.definition,definition2.definition]))
-    #   end
+      @word2 = Word.new("Stevie", nil)
+      @word2.save_word()
+
+      definition = Dictionary.new("Hello",@word.word_id,nil)
+      definition.save_definition()
+      definition2 = Dictionary.new("Puppy",@word.word_id,nil)
+      definition2.save_definition()
+      expect(@word.get_definitions).to(eq([definition,definition2]))
+    end
   end
 
 
