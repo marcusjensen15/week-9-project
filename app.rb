@@ -40,12 +40,20 @@ get('/words/:word_id') do
 end
 
 
+get('/words/:word_id/edit') do
+  @word = Word.find(params[:word_id].to_i())
+  erb(:edit_word)
+end
 
-# get('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   erb(:album)
-# end
-#
+patch('/words/:word_id') do
+  @word = Word.find(params[:word_id].to_i())
+  @word.update_word(params[:name])
+  @words = Word.all
+  erb(:words)
+end
+
+
+
 # get('/albums/:id/edit') do
 #   @album = Album.find(params[:id].to_i())
 #   erb(:edit_album)
