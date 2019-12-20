@@ -102,23 +102,27 @@ patch('/words/:word_id/definitions/:id') do
   erb(:definitions)
 end
 
-# patch('/albums/:id/songs/:song_id') do
+
+
+delete('/words/:word_id/definitions/:id') do
+  @word = Word.find(params[:word_id].to_i())
+  definition = Dictionary.find(params[:id].to_i())
+  definition.delete_definition()
+  @definitions = @word.get_definitions
+  erb(:definitions)
+end
+
+
+# delete('/albums/:id/songs/:song_id') do
 #   @album = Album.find(params[:id].to_i())
 #   song = Song.find(params[:song_id].to_i())
-#   song.update(params[:name])
+#   song.delete
 #   @songs = @album.get_songs
 #   erb(:songs)
-
-
-
-
-
-
-
-
-
-
+# end
 #
+
+
 # #### Routing for songs below
 #
 
@@ -144,10 +148,5 @@ end
 #   erb(:songs)
 # end
 #
-# patch('/albums/:id/songs/:song_id') do
-#   @album = Album.find(params[:id].to_i())
-#   song = Song.find(params[:song_id].to_i())
-#   song.update(params[:name])
-#   @songs = @album.get_songs
-#   erb(:songs)
+
 # end
