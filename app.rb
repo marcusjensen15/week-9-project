@@ -52,6 +52,22 @@ patch('/words/:word_id') do
   erb(:words)
 end
 
+delete('/words/:word_id') do
+  @word = Word.find(params[:word_id].to_i())
+  @word.delete_word()
+  @words = Word.all
+  erb(:words)
+end
+
+
+
+# delete('/albums/:id') do
+#   @album = Album.find(params[:id].to_i())
+#   @album.delete()
+#   @albums = Album.all
+#   @sold = Album.sold_albums
+#   erb(:albums)
+# end
 
 
 # get('/albums/:id/edit') do
@@ -94,13 +110,7 @@ end
 #   erb(:albums)
 # end
 #
-# delete('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.delete()
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
+
 #
 # #### Routing for songs below
 #
