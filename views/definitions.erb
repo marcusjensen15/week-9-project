@@ -1,0 +1,15 @@
+<h1><%= @word.name %></h1>
+
+
+<% if @definitions.any? %>
+<ul>
+  <% @definitions.each do |definition| %>
+  <li><a href="/words/<%= @word.word_id %>/definitions/<%= definition.id %>"><%= definition.definition%></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no definitions for this word.</p>
+<% end %>
+
+
+<a href="/words/<%= @word.word_id %>/definitions/new">Add a new definition</a>

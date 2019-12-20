@@ -59,57 +59,30 @@ delete('/words/:word_id') do
   erb(:words)
 end
 
+################## Routing for definitions below
+
+get('/words/:word_id/definitions') do
+  @word = Word.find(params[:word_id].to_i())
+  @definitions = @word.get_definitions
+  erb(:definitions)
+end
 
 
-# delete('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.delete()
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
 
 
-# get('/albums/:id/edit') do
+
+# get('/albums/:id/songs') do
 #   @album = Album.find(params[:id].to_i())
-#   erb(:edit_album)
+#   @songs = @album.get_songs
+#   erb(:songs)
 # end
 #
-# post('/albums') do
-#   name = params[:album_name]
-#   year = params[:year]
-#   artist = params[:artist]
-#   genre = params[:genre]
-#   album = Album.new(name, nil, year, genre, artist)
-#   album.save()
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
-#
-# patch('/albums/:id/sold') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.sold
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
-#
-# get('/update/:id') do
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
-#
-# patch('/albums/:id') do
-#   @album = Album.find(params[:id].to_i())
-#   @album.update(params[:name])
-#   @album.sold
-#   @albums = Album.all
-#   @sold = Album.sold_albums
-#   erb(:albums)
-# end
-#
+
+
+
+
+
+
 
 #
 # #### Routing for songs below
