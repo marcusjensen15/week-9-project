@@ -42,7 +42,9 @@ class Word
      self.name == word_to_compare.name()
    end
 
-
+   def get_definitions
+     
+   end
 
 
 end
