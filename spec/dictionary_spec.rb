@@ -29,16 +29,25 @@ describe '#Word' do
       expect(Dictionary.all).to(eq([definition, definition2]))
     end
   end
-  #
-  # describe ('.update_word') do
-  #   it("allows the user to chenge the name of the word") do
-  #     word = Word.new("Hello",nil)
-  #     word.save_word()
-  #     word.update_word("Speaker")
-  #     expect(word.name).to(eq("Speaker"))
-  #   end
-  # end
-  #
+
+  describe ('.update_definition') do
+    it("allows the user to edit the definition") do
+    definition = Dictionary.new("Hello",@word.word_id,nil)
+    definition.save_definition()
+    definition.update_definition("puppy")
+      expect(definition.definition).to(eq("puppy"))
+    end
+  end
+#
+#   describe('#update') do
+#   it("updates an song by id") do
+#     song = Song.new("Naima", @album.id, nil)
+#     song.save()
+#     song.update("Mr. P.C.")
+#     expect(song.name).to(eq("Mr. P.C."))
+#   end
+# end
+
   # describe ('.delete_word') do
   #   it("allows the user to delete a word from the database") do
   #     word = Word.new("Hello",nil)

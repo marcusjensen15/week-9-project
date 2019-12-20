@@ -1,7 +1,8 @@
 class Dictionary
 
-  attr_reader :definition, :id
-  attr_accessor :name, :word_id
+  #everything passes except update, moving :definition to accessor to see if it passes
+  attr_reader  :id
+  attr_accessor :name, :word_id, :definition
 
   @@definitions = {}
   @@total_definitions = 0
