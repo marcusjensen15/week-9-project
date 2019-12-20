@@ -67,16 +67,33 @@ get('/words/:word_id/definitions') do
   erb(:definitions)
 end
 
+post('/words/:word_id/definitions') do
+  @word = Word.find(params[:word_id].to_i())
 
+  definition = Dictionary.new(params[:definition_name], @word.word_id, nil)
+  definition.save_definition()
+  @definitions = @word.get_definitions
+  erb(:definitions)
+end
 
+get('/words/:word_id/definitions/new') do
+  @word = Word.find(params[:word_id].to_i())
+  erb(:new_definition)
+end
 
-
-# get('/albums/:id/songs') do
+# get('/albums/:id/songs/new') do
 #   @album = Album.find(params[:id].to_i())
+#   erb(:new_song)
+# end
+
+
+# post('/albums/:id/songs') do
+#   @album = Album.find(params[:id].to_i())
+#   song = Song.new(params[:song_name], @album.id, nil)
+#   song.save
 #   @songs = @album.get_songs
 #   erb(:songs)
 # end
-#
 
 
 
