@@ -76,7 +76,7 @@ describe '#Word' do
     end
 
 
-
+    #
     # describe ('.find_by_word') do
     #   it("will allow the user to find a definitions by its associated word") do
     #
