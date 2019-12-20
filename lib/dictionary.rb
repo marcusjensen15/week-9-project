@@ -1,12 +1,12 @@
 class Dictionary
 
-  attr_reader :definition_id
+  attr_reader :definition, :id
   attr_accessor :name, :word_id
 
   @@definitions = {}
   @@total_definitions = 0
 
-  def initalize(definition, word_id, id)
+  def initialize(definition, word_id, id)
 
     @definition = definition
     @word_id = word_id
@@ -22,7 +22,7 @@ class Dictionary
 
   def save_definition
 
-    @@words[self.definition_id] = Dictionary.new(self.definition,self.word_id, self.id)
+    @@definitions[self.id] = Dictionary.new(self.definition,self.word_id, self.id)
 
   end
 
