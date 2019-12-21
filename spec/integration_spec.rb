@@ -25,3 +25,14 @@ describe('edit a word', {:type => :feature}) do
     expect(page).to have_content('howdy')
   end
 end
+
+describe('create a definition', {:type => :feature}) do
+  it('creates a definition for a word') do
+    word = Word.new("Hi", nil)
+    word.save_word
+    visit("/words/#{word.word_id}/definitions/new")
+    fill_in('definition_name', :with => 'puppies are fun')
+    click_on('Go!')
+    expect(page).to have_content('puppies are fun')
+  end
+end
