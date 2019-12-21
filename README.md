@@ -28,11 +28,11 @@ _To my knowledge, this bug has no known bugs. please notify me if you encounter 
 
 ## Support and contact details
 
-_Marcus Jensen email:marcujensen1515@gmail.com_
+_Marcus Jensen email: marcusjensen1515@gmail.com_
 
 ## Technologies Used
 
-_HTML, erb, Ruby_
+_HTML, ERB, Ruby_
 
 ### License
 
